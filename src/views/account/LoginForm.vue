@@ -9,6 +9,7 @@ const schema = Yup.object().shape({
     password: Yup.string().required('Password is required')
 });
 
+// async는 비동기 함수
 async function onSubmit(values) {
     const authStore = useAuthStore();
     const { username, password } = values;
@@ -20,7 +21,7 @@ async function onSubmit(values) {
     <div class="card m-3">
         <h4 class="card-header">Login</h4>
         <div class="card-body">
-            <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
+            <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }"> <!--v-bind:validation-schema="schema" v-bind 생략 가능 -->
                 <div class="form-group">
                     <label>Username</label>
                     <Field name="username" type="text" class="form-control" :class="{ 'is-invalid': errors.username }" />

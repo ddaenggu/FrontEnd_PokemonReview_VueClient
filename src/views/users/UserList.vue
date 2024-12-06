@@ -79,7 +79,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, computed, onMounted } from 'vue';
+import { reactive, watch, computed, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useUsersStore } from '@/stores';
 
@@ -96,6 +96,7 @@ const pageCount = computed(() =>
 	Math.ceil(pageInfo.value.totalElements / params.pageSize),
 );
 
+// lifecycle hook
 onMounted(() => {
     fetchData();
 });
